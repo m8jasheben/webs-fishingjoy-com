@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
+  <title>捕鱼达人 · 资料索引与整理手记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      background-color: #f5f3f0;
+      color: #2c2b28;
+      line-height: 1.65;
+      letter-spacing: 0.02em;
+    }
+
+    /* 深色头图 – 故事开场 */
+    .hero {
+      background: linear-gradient(145deg, #151e28 0%, #1f2b3a 100%);
+      color: #e4e1da;
+      min-height: 65vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.8rem 1.8rem 3.8rem;
+      text-align: center;
+      position: relative;
+      border-bottom: 4px solid #4b7a9c;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: rgba(75, 122, 156, 0.3);
+      border-radius: 50%;
+    }
+
+    .hero-quote {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: #b6cddd;
+      margin-bottom: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 400;
+      margin: 0.2rem 0 1.5rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+      color: #f0ede6;
+      line-height: 1.2;
+    }
+
+    .hero-sub {
+      max-width: 640px;
+      font-size: 1.1rem;
+      color: #cbd8e3;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-sub a {
+      color: #b0d4f0;
+      text-decoration: none;
+      border-bottom: 1px dotted #5a8bb0;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-sub a:hover {
+      color: #dbeafe;
+      border-bottom: 1px solid #9ac2df;
+    }
+
+    /* 浅色正文区 – 卡片式承接 */
+    .content-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3.2rem 2rem 4.2rem;
+    }
+
+    .intro-card {
+      background: #fffffffa;
+      border-radius: 24px;
+      padding: 2.6rem 2.8rem;
+      margin-bottom: 3.2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .intro-card p {
+      margin-bottom: 1.5rem;
+      font-size: 1.04rem;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .accent-link {
+      color: #2f6b8f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s;
+    }
+
+    .accent-link:hover {
+      border-bottom: 2px solid #2f6b8f;
+      color: #1b4e6b;
+    }
+
+    /* 特点列表 – 温和资料整理 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem 2.4rem;
+      margin: 2.8rem 0 1.4rem;
+    }
+
+    .feature-item {
+      background: #f9f8f5;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem;
+      border-left: 4px solid #6d9bb5;
+      transition: background 0.2s;
+    }
+
+    .feature-item:hover {
+      background: #f1efea;
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1f3847;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .feature-item p {
+      font-size: 0.98rem;
+      color: #3e4b53;
+      line-height: 1.6;
+    }
+
+    .feature-item p a {
+      color: #2f6b8f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b2cbd9;
+    }
+
+    .feature-item p a:hover {
+      color: #12405c;
+      text-decoration-color: #2f6b8f;
+    }
+
+    /* 场景 / 提示 融合区 */
+    .note-area {
+      background: #edede9;
+      border-radius: 20px;
+      padding: 1.8rem 2.4rem;
+      margin: 2.4rem 0 2.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1rem 2.2rem;
+    }
+
+    .note-area blockquote {
+      flex: 1 1 260px;
+      font-size: 1rem;
+      font-style: normal;
+      border-left: 4px solid #607d8b;
+      padding-left: 1.2rem;
+      color: #2b3d48;
+      margin: 0;
+    }
+
+    .note-area blockquote p {
+      margin: 0.3rem 0;
+    }
+
+    .note-area .tip {
+      flex: 2 1 300px;
+    }
+
+    .note-area .tip p {
+      margin-bottom: 0.8rem;
+      font-size: 0.98rem;
+    }
+
+    .note-area .tip p:last-child {
+      margin-bottom: 0;
+    }
+
+    .small-faq {
+      margin-top: 2.2rem;
+    }
+
+    .small-faq details {
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #d6d2cb;
+      padding-bottom: 0.65rem;
+    }
+
+    .small-faq summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #1f3847;
+      padding: 0.25rem 0;
+      font-size: 1rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .small-faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .small-faq summary::before {
+      content: "▸";
+      display: inline-block;
+      width: 1.4rem;
+      color: #50758b;
+      transition: transform 0.2s;
+    }
+
+    .small-faq details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .small-faq details p {
+      padding: 0.6rem 0 0.2rem 1.6rem;
+      color: #3e4b53;
+      font-size: 0.96rem;
+    }
+
+    .closing-note {
+      margin-top: 2.8rem;
+      padding: 1.2rem 0 0.4rem;
+      font-size: 1rem;
+      color: #3c4b54;
+      border-top: 1px solid #dfdad3;
+    }
+
+    .closing-note a {
+      color: #2f6b8f;
+      text-decoration: none;
+      border-bottom: 1px dotted #9bb8cc;
+    }
+
+    .closing-note a:hover {
+      border-bottom: 1px solid #2f6b8f;
+    }
+
+    /* 温和 footer */
+    .page-footer {
+      text-align: center;
+      padding: 2.2rem 1.2rem 2.8rem;
+      font-size: 0.86rem;
+      color: #5b6b77;
+      background: #edebe7;
+      margin-top: 1.6rem;
+    }
+
+    .page-footer a {
+      color: #3f6b81;
+      text-decoration: none;
+      border-bottom: 1px dotted #9bb1be;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .hero-title {
+        font-size: 2.4rem;
+      }
+      .hero-quote {
+        font-size: 1rem;
+      }
+      .intro-card {
+        padding: 1.8rem 1.5rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .content-wrap {
+        padding: 2rem 1.2rem;
+      }
+      .note-area {
+        padding: 1.2rem 1.4rem;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        min-height: 55vh;
+        padding: 2rem 1.2rem 2.6rem;
+      }
+      .hero-title {
+        font-size: 1.9rem;
+      }
+      .intro-card p {
+        font-size: 0.96rem;
+      }
+      .feature-item {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图：故事开场短句 -->
+  <header class="hero">
+    <p class="hero-quote">从资料索引到玩法脉络</p>
+    <h1 class="hero-title">关于捕鱼达人<br>的信息整理手记</h1>
+    <div class="hero-sub">
+      <p>这里没有喧哗的推荐语，只有一份按分类梳理的笔记。<br>
+      如果你恰好想了解这个经典街机系列的来由、特点与不同版本，<br>或许可以从<a href="https://webs-fishingjoy.com">捕鱼达人</a>页面开始翻阅。</p>
+    </div>
+  </header>
+
+  <!-- 浅色正文区 -->
+  <main class="content-wrap">
+
+    <!-- 承接段落 -->
+    <section class="intro-card">
+      <p>说起“捕鱼”题材的游戏，最早出现在大型电玩厅的屏幕中：玩家控制炮台，瞄准屏幕中游弋的鱼群发射炮弹，击中获得相应分数。这种简单直白的反馈，在千禧年前后风靡一时。后来随着移动设备普及，大量移植与改编版本涌现，逐渐形成了一套以“瞄准‑发射‑收集”为主轴的小型品类。</p>
+      <p>这份整理基于多个公开资料、版本说明以及社区讨论，尝试以信息索引的方式，把零散的知识点归拢起来。不同时期、不同平台的 <a href="https://webs-fishingjoy.com" class="accent-link">捕鱼达人</a> 在美术风格、鱼种设计、炮台升级路径上各有差异，但核心体验始终围绕“观察与反应”展开。下面列出一些常见的特点与分支，方便快速对照。</p>
+    </section>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>炮台与弹药体系</h3>
+        <p>大部分版本提供多级炮台切换，消耗不同数量的弹药（或金币）。高倍率炮台单发威力更大，但每次射击成本也更高。部分版本加入连射、锁定、冰冻等特殊弹药，属于较晚出现的变体。</p>
+      </div>
+      <div class="feature-item">
+        <h3>鱼种价值与行为</h3>
+        <p>常见分类：小型鱼（如小丑鱼、河豚）分值低、游速快；中型鱼（如金枪鱼、魔鬼鱼）血量中等；Boss级鱼（如鲨鱼、鲸鱼）需要多次命中，但击败后分数可观。部分版本为鱼群加入了随机转向、加速逃逸等简单AI。</p>
+      </div>
+      <div class="feature-item">
+        <h3>道具与奖励回合</h3>
+        <p>击中特定鱼种或累积连击数后，可能触发“炸弹鱼”、“闪电链”或“金币雨”等奖励事件。奖励回合通常持续数秒，期间分数获取效率大幅提高，这也是拉开单局收益差距的关键节点。</p>
+      </div>
+      <div class="feature-item">
+        <h3>联网与排行榜</h3>
+        <p>从单机得分到全球排行，近年多数版本加入实时竞技场或赛季结算。部分平台支持房间制对战，玩家在相同鱼群密度下比拼限时收益。这一方向让“捕鱼”从纯粹的休闲慢慢延伸出轻度策略属性。</p>
+      </div>
+    </div>
+
+    <!-- 场景与提示融合 -->
+    <div class="note-area">
+      <blockquote>
+        <p>📎 资料散记</p>
+        <p>早期街机基板多采用固定难度曲线：随着时间推移鱼群密度与速度非线性增长。移动端版本则倾向于分级关卡，每一关有独立鱼种组合与Boss波次。</p>
+      </blockquote>
+      <div class="tip">
+        <p>如果你在寻找某个特定版本的鱼种图鉴或炮台参数，不妨直接去对应站点做关键词检索。不少玩家在论坛里贴过详细的数值对照表，对于入门了解很有帮助。</p>
+        <p>另外需要留意的是一些改版或私人服务器的数值不一定与原版一致，查阅时可以参考多个来源交叉比对。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 (轻量) -->
+    <div class="small-faq">
+      <details>
+        <summary>为什么捕鱼类游戏有那么多名称相近的版本？</summary>
+        <p>“捕鱼达人”最早是某一款产品的译名，后来逐渐演变为同类游戏的泛称。不同开发商为了突出自家内容，会在主名称前加上修饰词或副标题，比如“深海”、“传奇”、“竞技版”等，但基本玩法框架相似。</p>
+      </details>
+      <details>
+        <summary>资料中提到“倍率”和“炮台等级”有什么区别？</summary>
+        <p>倍率指单发炮弹消耗与得分倍数的比例关系；炮台等级通常指可选的炮弹威力档位，两者在部分游戏里合二为一，在另一些游戏中分开设置。查阅时注意具体规则描述即可。</p>
+      </details>
+      <details>
+        <summary>这类游戏适合从什么角度开始了解？</summary>
+        <p>建议先看一款标准版本的操作界面与计分规则，再对比其他版本的变化点。从鱼种设计、炮台升级曲线、奖励触发条件这几个维度入手，能较快建立基础认知。</p>
+      </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing-note">
+      <p>以上内容仅作为资料索引和概念梳理，并非教程或攻略。游戏规则与数值以各平台实际版本为准。如果想进一步浏览不同时期的版本信息，可以回到主页 <a href="https://webs-fishingjoy.com">捕鱼达人</a> 继续翻阅。</p>
+      <p style="margin-top: 0.8rem; font-style: italic; color: #5d6d79;">整理过程中参考了多个公开论坛与版本说明，如有疏漏或更新，欢迎指正。</p>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>资料索引 · 保持开放 · 2025 · 页面基于内容整理方向设计</p>
+    <p style="margin-top: 0.3rem;"><a href="https://webs-fishingjoy.com">捕鱼达人</a> 相关素材与版本信息仅供参考</p>
+  </footer>
+
+</body>
+</html>
